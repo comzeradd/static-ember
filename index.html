@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stacic Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/app.css" />
+</head>
+<body>
+
+  <script type="text/x-handlebars">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-2">
+
+          <div class="row">
+            <div class="col-md-12">
+              <img src="http://placehold.it/200x200" alt="logo" class="img-responsive" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="nav nav-pills nav-stacked">
+                <li>{{#link-to 'about'}}About{{/link-to}}</li>
+                <li>{{#link-to 'list'}}List{{/link-to}}</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-md-10" id="content">
+          {{outlet}}
+        </div>
+      </div>
+
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="about">
+    <div id="content">
+      <p class="label label-default">About</p>
+      <p>&nbsp;</p>
+      <p>This is a qucikstart kit for building a simple static site with <a href="http://emberjs.com/" target="_blank">ember.js</a>
+      and <a href="http://handlebarsjs.com/" target="_blank">handlebars.js</a>.</p>
+      <p>&nbsp;</p>
+      <p>Source code available at <a href="https://github.com/comzeradd/static-ember/" target="_blank">github</a>.</p>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="list">
+    <div id="content">
+      <p class="label label-default">List</p>
+      <p>&nbsp;</p>
+      <p>A list with two items</p>
+      <p>&nbsp;</p>
+
+      {{#each}}
+        <div class="row event">
+          <div class="col-md-12" id="archive-title">
+            {{#link-to 'item' this}}Item {{id}}{{/link-to}}
+          </div>
+        </div>
+      {{/each}}
+
+      <div class="row">
+        <div class="col-md-12">
+          {{outlet}}
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="item">
+      <div class="item-title">
+        {{title}}
+      </div>
+  </script>
+
+  <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ember.js/1.0.0/ember.min.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
